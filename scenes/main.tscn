@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://p4hc8muga4il"]
+
+[ext_resource type="PackedScene" uid="uid://bopkbf3kxb4u" path="res://nodes/plane/plane.tscn" id="1_fy75f"]
+[ext_resource type="PackedScene" uid="uid://bm5t555nnofpj" path="res://nodes/pipes/pipes_spawner.tscn" id="2_188so"]
+[ext_resource type="PackedScene" uid="uid://c4ortwtcsueac" path="res://nodes/score_counter/score_counter.tscn" id="3_gmr70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gljlv"]
+size = Vector2(548, 20)
+
+[node name="Main" type="Node"]
+
+[node name="Plane" parent="." instance=ExtResource("1_fy75f")]
+position = Vector2(90, 421)
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(227, 852)
+shape = SubResource("RectangleShape2D_gljlv")
+
+[node name="floor1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor1"]
+position = Vector2(224, 1)
+shape = SubResource("RectangleShape2D_gljlv")
+
+[node name="PipesSpawner" parent="." instance=ExtResource("2_188so")]
+
+[node name="ScoreCounter" parent="." instance=ExtResource("3_gmr70")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
